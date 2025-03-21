@@ -53,8 +53,18 @@ listener(formvalues,'submit',(e) => {
     }
     let newValues = currentVotes.votes += inputValues
     getId("vote-count").innerText = newValues
+    fetch(`${server_url}/${currentVotes.id}`,{
+        method : "PATCH",
+        headers:{
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({votes: newValues})
+    })
+    .then(res => res.json())
+    .then(updatedData => console.log("Success in server updates:",updatedData))
+    .catch(error => console.error("Error in server updates :", error))
     
-    console.log(newValues)
+   
     formvalues.reset();
-})
+});
 
