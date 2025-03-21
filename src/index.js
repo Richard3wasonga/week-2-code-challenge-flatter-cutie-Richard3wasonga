@@ -85,3 +85,29 @@ function deleteItem(){
     .catch(error => console.error("Error in reseting votes:",error))
 }
 
+function addGif(){
+    const formAdd = getId("character-form")
+    listener(formAdd,"submit",(e) => {
+        e.preventDefault()
+        const newGif ={
+            name : e.target.name.value,
+            image: e.target["image-url"].value,
+            votes: 0
+        }
+        fetch(server_url,{
+            method : "POST",
+            headers:{
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(newGif)
+
+        })
+        .then(res => res.json())
+        .then(addedData => console.log("Data successfuly added:",addedData))
+        .catch(error => console.error("Error in added data:",error))
+        formAdd.reset()
+    })
+    
+}
+addGif()
