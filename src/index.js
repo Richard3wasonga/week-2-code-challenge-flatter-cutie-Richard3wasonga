@@ -1,5 +1,6 @@
 // Your code here
 let server_url = "http://localhost:3000/characters"
+let currentVotes;
 function getId (targeted_Id){
     return document.getElementById(targeted_Id);
 }
@@ -29,15 +30,31 @@ function displayNames(character){
     const nSpan = createE('span')
     nSpan.textContent = character.name;
     appendChild(nameBar,nSpan)
-    listener(nSpan,'click',() => displayinfo(character))
+    listener(nSpan,'click',() =>{ 
+        currentVotes = character;
+        displayinfo(character);
+    })
+    
 }
 function displayinfo(info){
     getId("name").innerText = info.name
-    getId("image").src= info.image
+    const imageDisplay = getId("image");
+    imageDisplay.src = info.image;
+    imageDisplay.alt = info.name;
     getId("vote-count").innerText = info.votes
-    
-
-
 }
-
+const formvalues = getId("votes-form")
+listener(formvalues,'submit',(e) => {
+    e.preventDefault();
+    const inputValues = parseInt(e.target.votes.value)
+    if(isNaN(inputValues)){
+        alert("Only numerical values can be used");
+        return;
+    }
+    let newValues = currentVotes.votes += inputValues
+    getId("vote-count").innerText = newValues
+    
+    console.log(newValues)
+    formvalues.reset();
+})
 
