@@ -67,4 +67,21 @@ listener(formvalues,'submit',(e) => {
    
     formvalues.reset();
 });
+const deleteGif = getId("reset-btn")
+listener(deleteGif, 'click',deleteItem)
+
+function deleteItem(){
+    currentVotes.votes = 0
+    getId("vote-count").innerText = currentVotes.votes
+    fetch(`${server_url}/${currentVotes.id}`,{
+        method : "PATCH",
+        headers: {
+            "Content-Type" : "application/json"
+        },
+        body: JSON.stringify({votes : currentVotes.votes})
+    })
+    .then(res => res.json())
+    .then(deleteData => console.log("votes reseted successfuly:", deleteData))
+    .catch(error => console.error("Error in reseting votes:",error))
+}
 
