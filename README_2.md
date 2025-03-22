@@ -38,19 +38,19 @@ npm install -g json-server
 ### Setup
 1. Clone this repository:
 
-```bash
+```Repository-link
 git clone https://github.com/Richard3wasonga/week-2-code-challenge-flatter-cutie-Richard3wasonga.git
 ```
 
 2. Navigate to the project folder:
 
-```bash
+```file-name
 cd week-2-code-challenge-flatter-cutie-Richard3wasonga
 ```
 
 3. Start the JSON server:
 
-```bash
+```server-url
 json-server --watch db.json
 ```
 
