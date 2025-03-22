@@ -21,7 +21,7 @@ fetch(server_url,{
     }
 })
 .then(res => res.json())
-.then(data => data.forEach(sd => displayNames(sd)))
+.then(data => data.forEach(cutieDetail => displayNames(cutieDetail)))
 .catch(error => console.error("Error",error)
 )
 
