@@ -87,6 +87,8 @@ json-server --watch db.json
 
 ## Author
 Richard Wasonga - [GitHub Profile](https://github.com/Richard3wasonga)
+## Acknowledgments
+Bob Oyier - Contributor
 
 ## Project Repository
 [Week 2 Code Challenge - Flatacuties](https://github.com/Richard3wasonga/week-2-code-challenge-flatter-cutie-Richard3wasonga)
