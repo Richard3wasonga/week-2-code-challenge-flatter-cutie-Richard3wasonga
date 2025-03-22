@@ -1,5 +1,5 @@
 // Your code here
-let server_url = "http://localhost:3000/characters"
+let server_url = "https://json-server-vercel-three-iota.vercel.app/characters"
 let currentVotes;
 function getId (targeted_Id){
     return document.getElementById(targeted_Id);
