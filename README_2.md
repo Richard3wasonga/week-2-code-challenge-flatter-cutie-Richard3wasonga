@@ -31,7 +31,7 @@ Flatacuties is a web-based application that allows users to view, vote for, add,
 - Install [Node.js](https://nodejs.org/) and npm (Node Package Manager).
 - Install JSON Server globally using:
 
-```bash
+```json-server-install
 npm install -g json-server
 ```
 
